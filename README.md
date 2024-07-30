@@ -14,7 +14,7 @@ The main idea of this repo is to modify CAT so it accepts CH/YARG exclusive feat
 - Reduce 2x bass pedal
   - [ ] Move to note 95 instead of deleting;
 - General
-  - [ ] Ensure all functions still work even if they have non-RB3 features in them;
+  - [ ] Ensure all functions still work even if the charts have non-RB3 features in them;
 - Pro Guitar/Bass
   - [ ] (maybe) Add support to PART REAL_GUITAR_COOP and REAL_RHYTHM, **if** those get added to YARG;
 - CARV
