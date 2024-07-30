@@ -1387,7 +1387,7 @@ def remove_notes_pg(what,level,instrument,how,selected):
     array_notes = add_objects(array_notes, array_tempnotes)
     write_midi(instrument, [array_notes, array_notesevents[1]], end_part, start_part)
 
-def remove_notes(what,level,instrument,how,same,sparse,bend,selected):
+def remove_notes(what,level,instrument,how,same,sparse,bend,opens_to_green,selected):
     #PM("\n\n"+what+" - "+level+" - "+instrument+" - "+str(how)+" - "+str(same)+" - "+str(sparse)+" - "+str(bend)+" - "+str(selected)+"\n\n")
     #w/h/q/e, whole, half, quarter, eighth grid
     #x/h/m/e, expert, hard, medium, easy
@@ -1444,6 +1444,8 @@ def remove_notes(what,level,instrument,how,same,sparse,bend,selected):
             invalid_note_mb(note, instrumentname)
             return
         if notes_dict[note[2]][1] == level and (selected == 0 or (selected and (this_measure >= first_measure and this_measure <= last_measure))):
+            if notes_dict[note[2]][2] == "P" and opens_to_green: #if opens to green is enabled and note is an open note...
+                note[2] += 1 #move note one semitone up, to green
             array_validnotes.append(note)
         else:
             array_notes.append(note)
@@ -4936,15 +4938,16 @@ def reduce_5lane(instrument, levels, hard, medium, easy, chords, reduceChords, r
         if (instrument == 'PART DRUMS' or instrument == 'PART DRUMS 2X') and  unflip == 'h':
             unflip_discobeat(instrument, 'h', 20, 0)
         
-        #remove_notes using 1/8th grid, sparse, pitch bend
+        #remove_notes using 1/8th grid, sparse, pitch bend, move opens to green
         pitchbend = hard[3]
+        opens_to_green = hard[4]
         if instrument == 'PART DRUMS' or instrument == 'PART DRUMS 2X':
             pitchbend = 0
-
+            opens_to_green = 0
         if (instrument == 'PART GUITAR' or instrument == 'PART BASS' or instrument == 'PART KEYS' or instrument == 'PART RHYTHM') and reduceChords:
             reduce_chords(instrument, 'h', chords[2], 0)
         
-        remove_notes(hard[0],'h',instrument,tolerance,hard[1],hard[2],pitchbend,0)
+        remove_notes(hard[0],'h',instrument,tolerance,hard[1],hard[2],pitchbend,opens_to_green,0)
 
         #Run simplify_roll
         simplify_roll(instrument, 'h', 0)
@@ -5014,12 +5017,14 @@ def reduce_5lane(instrument, levels, hard, medium, easy, chords, reduceChords, r
         if medium[3] == 1 and (instrument == 'PART DRUMS' or instrument == 'PART DRUMS 2X'):
             remove_kick(instrument, 'm', 'p', 0)
 
-        #remove_notes using 1/4th grid, consecutive notes, sparse
+        #remove_notes using 1/4th grid, consecutive notes, sparse, move opens to green
         pitchbend = medium[3]
+        opens_to_green = medium[4]
         if instrument == 'PART DRUMS' or instrument == 'PART DRUMS 2X':
             pitchbend = 0
+            opens_to_green = 0
 
-        remove_notes(medium[0],'m',instrument,tolerance,medium[1],medium[2],pitchbend,0)
+        remove_notes(medium[0],'m',instrument,tolerance,medium[1],medium[2],pitchbend,opens_to_green,0)
 
         if (instrument == 'PART GUITAR' or instrument == 'PART BASS' or instrument == 'PART KEYS' or instrument == 'PART RHYTHM') and reduceNotes:
             reduce_singlenotes(instrument, 'm', 0)
@@ -5097,10 +5102,12 @@ def reduce_5lane(instrument, levels, hard, medium, easy, chords, reduceChords, r
 
         #remove_notes using 1/2nd grid, consecutive notes, sparse
         pitchbend = easy[3]
+        opens_to_green = easy[4]
         if instrument == 'PART DRUMS' or instrument == 'PART DRUMS 2X':
             pitchbend = 0
+            opens_to_green = 0
 
-        remove_notes(easy[0],'e',instrument,tolerance,easy[1],easy[2],pitchbend,0)
+        remove_notes(easy[0],'e',instrument,tolerance,easy[1],easy[2],pitchbend,opens_to_green,0)
 
         if (instrument == 'PART GUITAR' or instrument == 'PART BASS' or instrument == 'PART KEYS' or instrument == 'PART RHYTHM') and reduceNotes:
             reduce_singlenotes(instrument, 'e', 0)

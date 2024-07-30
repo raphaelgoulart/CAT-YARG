@@ -8,8 +8,8 @@ The main idea of this repo is to modify CAT so it accepts CH/YARG exclusive feat
 - Automatic reductions (drums)
   - [x] Silently ignore Expert+ kicks (note 95) instead of erroring out;
 - Automatic reductions (5-lane)
-  - [ ] Silently ignore tap markers;
-  - [ ] "Move opens to green" toggle for each difficult (default: off/on/on for H/M/E respectively);
+  - [x] Silently ignore tap markers;
+  - [x] "Move opens to green" toggle for each difficult (default: off/on/on for H/M/E respectively);
   - [ ] Add support for PART GUITAR COOP track;
 - Reduce 2x bass pedal
   - [x] Move to note 95 instead of deleting;
