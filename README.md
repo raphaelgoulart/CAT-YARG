@@ -1,6 +1,8 @@
 # CAT-YARG
 The main idea of this repo is to modify CAT so it accepts CH/YARG exclusive features (Expert+ kick notes, open notes, tap regions etc.) rather than erroring out due to invalid notes. If you chart primarily for RB3, please use [the original](https://github.com/abefacciazzi/CAT) instead.
 
+More info about CAT available [here](https://rhythmgamingworld.com/forums/topic/c3-automation-tools-2/).
+
 ## Installation
 1. Make sure ReaScript is working:
    - This can be done by installing [Python 2.7](https://www.python.org/downloads/release/python-2718/);
