@@ -80,10 +80,10 @@ def launch():
     inFileLbl = Tkinter.Label(stepOne, text="Select instrument")
     inFileLbl.grid(row=0, column=0, sticky='E', padx=5, pady=2)
     
-    OPTIONS = ["Drums", "Guitar", "Bass", "Keys", "Pro Keys", "2x Drums", "Rhythm", "Pro Guitar", "Pro Guitar (22)", "Pro Bass", "Pro Bass (22)"]
+    OPTIONS = ["Drums", "Guitar", "Bass", "Keys", "Pro Keys", "2x Drums", "Rhythm", "Pro Guitar", "Pro Guitar (22)", "Pro Bass", "Pro Bass (22)", "Guitar Coop"]
 
     # Pro guitar/bass IDs
-    if instrument_id in range(8,11+1):
+    if instrument_id in range(8,13):
         instrument_id -= 1
 
     if instrument_id > len(OPTIONS) - 1: instrument_id = 0
