@@ -5137,7 +5137,7 @@ def auto_animations(beattrack, expression, pause, grid, crash, soft, flam, ghost
     create_beattrack(beattrack, 0)
 
     #Add animations markers
-    array_anims = ["PART DRUMS", "PART GUITAR", "PART BASS", "PART VOCALS", "PART KEYS", "PART REAL_KEYS_X", "PART DRUMS 2X", "PART RHYTHM"]
+    array_anims = ["PART DRUMS", "PART GUITAR", "PART BASS", "PART VOCALS", "PART KEYS", "PART REAL_KEYS_X", "PART DRUMS 2X", "PART RHYTHM", "PART GUITAR COOP"]
     for x in range(0, len(array_anims)):
         if tracks_array[array_anims[x]] != 999:
             create_animation_markers(array_anims[x], expression, pause, mutevar)
