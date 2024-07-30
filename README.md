@@ -3,10 +3,10 @@ The main idea of this repo is to modify CAT so it accepts CH/YARG exclusive feat
 
 ## TODO
 - Create drums animations
-  - [ ] Silently ignore Expert+ kicks (note 95) instead of erroring out;
-  - [ ] For velocity 1 snare notes, auto-generate Snare Rim animation notes instead of Snare Hard (togglable);
+  - [x] Silently ignore Expert+ kicks (note 95) instead of erroring out;
+  - [x] For velocity 1 snare notes, auto-generate Snare Rim animation notes instead of Snare Hard (togglable);
 - Automatic reductions (drums)
-  - [ ] Silently ignore Expert+ kicks (note 95) instead of erroring out;
+  - [x] Silently ignore Expert+ kicks (note 95) instead of erroring out;
 - Automatic reductions (5-lane)
   - [ ] Silently ignore tap markers;
   - [ ] "Move opens to green" toggle for each difficult (default: off/on/on for H/M/E respectively);

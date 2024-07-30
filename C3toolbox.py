@@ -2484,7 +2484,7 @@ def simplify_roll(instrument, level, selected):
 
     write_midi(instrument, [array_temp, array_notesevents[1]], end_part, start_part)
 
-def drums_animations(instrument, crash, soft, flam, grid, cymbals, how, mute):
+def drums_animations(instrument, crash, soft, flam, ghost, grid, cymbals, how, mute):
 
     #instrument (PART DRUMS)
     #crash: 0 for CRASH2 default crash, 1 for CRASH1 default crash
@@ -2555,6 +2555,10 @@ def drums_animations(instrument, crash, soft, flam, grid, cymbals, how, mute):
             if(pitch == 100 and crash): #CRASH1 option
                 pitch = 104
             new_note[2] = drumsanimations_array[pitch][soft]
+            if(pitch == 97 and ghost): #ghost snare option
+                velocity = int(str(note[3]), 16)
+                if velocity == 1: #if it's a ghost...
+                    new_note[2] += 2 #move anim note 2 semitones up
             array_notes.append(new_note)
             
     #Flip disco sections putting snare on the right hand
@@ -5111,7 +5115,7 @@ def reduce_5lane(instrument, levels, hard, medium, easy, chords, reduceChords, r
 
         fix_sustains(instrument, 'e', 1, 0) #instrument, level, fix, selected
 
-def auto_animations(beattrack, expression, pause, grid, crash, soft, flam, tolerance, keys, mutevar):
+def auto_animations(beattrack, expression, pause, grid, crash, soft, flam, ghost, tolerance, keys, mutevar):
     #Create the BEAT track
     create_beattrack(beattrack, 0)
 
@@ -5125,7 +5129,7 @@ def auto_animations(beattrack, expression, pause, grid, crash, soft, flam, toler
     array_drumsanims = ["PART DRUMS", "PART DRUMS 2X"]
     for x in range(0, len(array_drumsanims)):
         if tracks_array[array_drumsanims[x]] != 999:
-            drums_animations(str(array_drumsanims[x]), int(crash), int(soft), int(flam), str(grid), int(tolerance), 10, int(mutevar))
+            drums_animations(str(array_drumsanims[x]), int(crash), int(soft), int(flam), int(ghost), str(grid), int(tolerance), 10, int(mutevar))
 
     if keys == 1 and tracks_array['PART REAL_KEYS_X'] != 999:
         create_keys_animations()

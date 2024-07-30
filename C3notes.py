@@ -109,6 +109,7 @@ notesname_array = {
 	98 : ["Expert Yellow", "notes_x", "Y"],
 	97 : ["Expert Red", "notes_x", "R"],
 	96 : ["Expert Kick", "notes_x", "O"],
+    95 : ["Expert+ Kick", "notes_x+", "O"],
 	88 : ["Hard Green", "notes_h", "G"],
 	87 : ["Hard Blue", "notes_h", "B"],
 	86 : ["Hard Yellow", "notes_h", "Y"],
