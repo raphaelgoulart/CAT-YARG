@@ -409,8 +409,9 @@ def launch(instrument):
     tolerance.config(width=5)
     tolerance.grid(row=0, column=2, padx=5, pady=2, sticky='W')
 
-    OPTIONS = ["Drums", "Guitar", "Bass", "Keys", "Pro Keys", "2x Drums", "Rhythm"]
-    
+    OPTIONS = ["Drums", "Guitar", "Bass", "Keys", "Pro Keys", "2x Drums", "Rhythm", "Guitar Coop"]
+    if (instrument_id == 12): instrument_id = 7
+    elif (instrument_id > len(OPTIONS)): instrument_id = 0
 
     instrument_var = Tkinter.StringVar(Options_grid)
     instrument_var.set(OPTIONS[instrument_id]) # default value

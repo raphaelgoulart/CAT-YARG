@@ -10,10 +10,11 @@ The main idea of this repo is to modify CAT so it accepts CH/YARG exclusive feat
 - Automatic reductions (5-lane)
   - [x] Silently ignore tap markers;
   - [x] "Move opens to green" toggle for each difficult (default: off/on/on for H/M/E respectively);
-  - [ ] Add support for PART GUITAR COOP track;
+  - [x] Add support for PART GUITAR COOP track;
 - Reduce 2x bass pedal
   - [x] Move to note 95 instead of deleting;
 - General
+  - [ ] Add "Guitar Coop" to 5-lane all 5-lane related functions
   - [ ] Ensure all functions still work even if the charts have non-RB3 features in them;
 - Pro Guitar/Bass
   - [ ] (maybe) Add support to PART REAL_GUITAR_COOP and REAL_RHYTHM, **if** those get added to YARG;

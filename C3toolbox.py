@@ -75,7 +75,8 @@ tracks_array = { "PART DRUMS" : 999,
                  "PART REAL_GUITAR": 999,
                  "PART REAL_GUITAR_22": 999,
                  "PART REAL_BASS": 999,
-                 "PART REAL_BASS_22": 999
+                 "PART REAL_BASS_22": 999,
+                 "PART GUITAR COOP": 999,
                  }
 array_instruments = {
         "Drums" : "PART DRUMS",
@@ -92,7 +93,8 @@ array_instruments = {
         "Pro Guitar" : "PART REAL_GUITAR",
         "Pro Guitar (22)" : "PART REAL_GUITAR_22",
         "Pro Bass" : "PART REAL_BASS",
-        "Pro Bass (22)" : "PART REAL_BASS_22"
+        "Pro Bass (22)" : "PART REAL_BASS_22",
+        "Guitar Coop" : "PART GUITAR COOP"
         }
 
 array_dropdownid = { "PART DRUMS" : 0,
@@ -110,7 +112,8 @@ array_dropdownid = { "PART DRUMS" : 0,
                      "PART REAL_GUITAR": 8,
                      "PART REAL_GUITAR_22": 9,
                      "PART REAL_BASS": 10,
-                     "PART REAL_BASS_22": 11
+                     "PART REAL_BASS_22": 11,
+                     "PART GUITAR COOP": 12
                  }
 
 array_dropdownvocals = { "PART VOCALS" : 0,
@@ -128,7 +131,8 @@ array_partlyrics = { "PART VOCALS" : "vocals",
 array_dropdownid_chords = { "PART GUITAR" : 0,
                      "PART BASS" : 1,
                      "PART KEYS" : 2,
-                     "PART RHYTHM": 3
+                     "PART RHYTHM": 3,
+                     "PART GUITAR COOP": 4
                  }
 array_levels = { "Expert" : ["x", "_X"], "Hard" : ["h", "_H"], "Medium" : ["m", "_M"], "Easy" : ["e", "_E"] }
 array_levels_id = { 'x' : 0, 'h' : 1, 'm' : 2, 'e' : 3 }
@@ -454,8 +458,6 @@ def get_trackid(): #Returns the id for the currently selected track
 
         if "DRUMS" in source and source != "PART DRUMS":
             source = "PART DRUMS 2X"
-        elif "RHYTHM" in source:
-            source = "PART RHYTHM"
         elif source == "PART REAL _KEYS_H":
             source = "PART REAL_KEYS_H"
 
@@ -825,7 +827,11 @@ def prep_tracks():
         elif "PART REAL_BASS" == trackname:
             tracks_array["PART REAL_BASS"] = i  
         elif "PART REAL_BASS_22" == trackname:
-            tracks_array["PART REAL_BASS_22"] = i          
+            tracks_array["PART REAL_BASS_22"] = i
+        elif "PART RHYTHM" == trackname:
+            tracks_array["PART RHYTHM"] = i          
+        elif "PART GUITAR COOP" == trackname:
+            tracks_array["PART GUITAR COOP"] = i          
         else:
             instrument = "???"
     #PM("\ntracks_array:\n")

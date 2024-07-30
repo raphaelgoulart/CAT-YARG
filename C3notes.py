@@ -23,6 +23,7 @@ notesname_instruments_array = {
     "HARM3": "VOCALS",
     "PART DRUMS 2X": "DRUMS",
     "PART RHYTHM": "5LANES",
+    "PART GUITAR COOP": "5LANES",
     "PART REAL_GUITAR": "PROGUITAR",
     "PART REAL_GUITAR_22": "PROGUITAR",
     "PART REAL_BASS": "PROGUITAR",
