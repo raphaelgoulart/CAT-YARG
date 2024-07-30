@@ -10,6 +10,7 @@ global instrument_var
 global crashChkvar
 global softChkvar
 global flamChkvar
+global ghostChkvar
 global tolerance
 global form
 

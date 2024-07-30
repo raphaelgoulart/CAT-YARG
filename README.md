@@ -12,7 +12,7 @@ The main idea of this repo is to modify CAT so it accepts CH/YARG exclusive feat
   - [ ] "Move opens to green" toggle for each difficult (default: off/on/on for H/M/E respectively);
   - [ ] Add support for PART GUITAR COOP track;
 - Reduce 2x bass pedal
-  - [ ] Move to note 95 instead of deleting;
+  - [x] Move to note 95 instead of deleting;
 - General
   - [ ] Ensure all functions still work even if the charts have non-RB3 features in them;
 - Pro Guitar/Bass

@@ -1925,7 +1925,7 @@ def remove_kick(instrument,level, what, selected):
     array_notes = add_objects(array_notes, array_temp)
     write_midi(instrument, [array_notes, array_notesevents[1]], end_part, start_part)
 
-def single_pedal(level, how, selected):
+def single_pedal(level, how, move, selected):
     global maxlen
     global double_pedal_bpm
     instrument = tracks_array['PART DRUMS']
@@ -2068,6 +2068,10 @@ def single_pedal(level, how, selected):
         note = array_validnotes[x]
         if note[1] not in array_notestoremove:
             array_notes.append(note)
+        elif move: 
+            note[2] -= 1 #move to x+ kick
+            array_notes.append(note)
+
     #Use the remove_notes criteria and keep only notes on a 1/8th grid for those sections
     write_midi(instrument, [array_notes, array_notesevents[1]], end_part, start_part)
     
